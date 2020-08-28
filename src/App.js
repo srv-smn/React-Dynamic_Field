@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import { Segment,Header, Card, Form, Container, Button, Dropdown } from 'semantic-ui-react' ;
+import { Segment,Header, Form, Container, Button, Dropdown } from 'semantic-ui-react' ;
 
 class App extends Component {
   constructor(props) {
