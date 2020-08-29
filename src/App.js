@@ -6,16 +6,18 @@ import { Segment,Header, Form, Container, Button, Dropdown } from 'semantic-ui-r
 class App extends Component {
   constructor(props) {
         super(props);
-        this.state = { inputs: ['input-0'], token : [
-      { key: 'dai', value: 'dai', text: 'Dai' },
-      { key: 'btc', value: 'btc', text: 'Bitcoin' },
-    ]}
+        this.state = { token : [
+      { key: 'Dai', value: 'dai', text: 'Dai' },
+      { key: 'BTC', value: 'btc', text: 'Bitcoin' },
+    ],
+    obj:[{addr:'',amt:'',tkn:''}],
+  }
 
     }
 
     appendInput() {
-       var newInput = `input-${this.state.inputs.length}`;
-       this.setState(prevState => ({ inputs: prevState.inputs.concat([newInput]) }));
+      let temp = [...this.state.obj, {addr:'',amt:'',tkn:''}]
+       this.setState({obj:temp});
    }
 
   HeaderExampleFloating(){
@@ -27,6 +29,26 @@ class App extends Component {
      </Segment>
   );
 }
+
+onChange =  (event,index,jsj) =>{
+
+      if(index.name === 'tkn')
+      {
+        const list = [...this.state.obj];
+        list[jsj]['tkn'] = index.value;
+        this.setState({obj:list});
+        console.log(this.state.obj);
+      }
+      else{
+      const { name, value } = event.target;
+      const list = [...this.state.obj];
+      list[index][name] = value;
+      this.setState({obj:list});
+    }
+
+};
+
+
   render(){
   return (
     <div>
@@ -42,10 +64,13 @@ class App extends Component {
         <Container style = {{marginTop : '30px'}}>
         <Segment >
         <Form >
-          {this.state.inputs.map(input => <Form.Group widths='equal'>
-            <Form.Input fluid  placeholder='Address' />
-            <Form.Input fluid  placeholder='Amount' />
+          {this.state.obj.map((input,index) => <Form.Group widths='equal'>
+            <Form.Input fluid  placeholder='Address' name="addr" value={input.addr} onChange={(e) =>this.onChange(e,index)}/>
+            <Form.Input fluid  placeholder='Amount' name="amt" value={input.amt} onChange={(e) =>this.onChange(e,index)} />
             <Dropdown
+        onChange={(e,data) =>this.onChange(e,data,index)}
+        name="tkn"
+        value={input.tkn}
         placeholder='Select Token'
         fluid
         search
