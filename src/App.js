@@ -30,6 +30,30 @@ class App extends Component {
   );
 }
 
+onSubmit =  () =>{
+let address=[];
+let amount=[];
+let token=[];
+this.state.obj.map((input,index) => {
+  let address1 = [];
+  let amount1 = [];
+  let token1 = [];
+
+ address1 = [...address, input.addr];
+ amount1 = [...amount, input.amt];
+ token1 = [...token, input.tkn];
+
+ address= address1;
+ amount= amount1;
+ token= token1;
+
+}
+)
+console.log("address: ",address);
+console.log("amount :",amount);
+console.log("token :", token);
+}
+
 onChange =  (event,index,jsj) =>{
 
       if(index.name === 'tkn')
@@ -80,6 +104,15 @@ onChange =  (event,index,jsj) =>{
           </Form.Group>)}
         </Form>
       </Segment>
+      <Container style = {{display: "flex",justifyContent: "center",alignItems: "center"}}>
+      <Button
+      positive ={true}
+     content ="Submit"
+     icon ="ethereum"
+     primary
+     onClick={ () => this.onSubmit() }
+     />
+     </Container>
         </Container>
 
     </div>
