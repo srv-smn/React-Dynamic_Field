@@ -104,7 +104,7 @@ onChange =  (event,index,jsj) =>{
           </Form.Group>)}
         </Form>
       </Segment>
-      <Container style = {{display: "flex",justifyContent: "center",alignItems: "center"}}>
+      <Container style = {{display: "flex",justifyContent: "center",alignItems: "center", marginBottom : '50px'}}>
       <Button
       positive ={true}
      content ="Submit"
