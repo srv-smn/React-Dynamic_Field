@@ -6,7 +6,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
- ![Multi lingul](https://drive.google.com/file/d/1XH3sJ3lPm768AcwWD4doLjsaJIdqQ59o/view?usp=sharing)
+ ![Multi lingul](https://u.pcloud.link/publink/show?code=XZ6Vo0XZHKXrvDlQlChesHUXYPGBI5KrryEy)
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
